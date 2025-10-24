@@ -1,6 +1,6 @@
 //variables
 const btnInicio = document.getElementById("btnInicio").addEventListener("click",() =>{
-    location.href = "../index.html"
+    location.href = "../pages/inicio.html"
 })
 
 let span = document.getElementById("username")
@@ -72,6 +72,7 @@ function actualizarVista () {
         </ul>
         <p> Total a pagar: $${total}</p>
     `
+    localStorage.removeItem("nombre")
     localStorage.removeItem("comprado")
     localStorage.removeItem("total")
 }
