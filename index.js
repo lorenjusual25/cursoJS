@@ -11,6 +11,7 @@ input.addEventListener("input", function () {
 })
 
 botonGuardar.addEventListener("click", () => {
+    alert("Nombre guardado: " + nombre)
     localStorage.setItem("nombre",nombre)
 })
 

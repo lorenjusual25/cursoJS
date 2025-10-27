@@ -1,0 +1,51 @@
+body {
+    background: linear-gradient(#ff7e5f, #feb47b);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#contenedor {
+    height: 50vh;
+    width: 50vh;
+    background-color: #ffffffc5;
+    border: solid 2px #ffffff;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    h2 span { /*no le puse un id porque queria hacerlo mas facil*/
+        display: block;
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+}
+#usernameInput {
+    height: 80px; 
+    width: 80%;
+    text-align: center;
+    font-size: 30px;
+}
+.contenedorBotones {
+}
+.botonesIndex {
+    border: none;
+    background-color: #e8a12fe3;
+    width: 150px;
+    height: 40px;
+}
+.botonesIndex:hover {
+    cursor: pointer;
+    background-color: #f4c099;
+}

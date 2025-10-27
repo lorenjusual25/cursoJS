@@ -12,17 +12,17 @@ const ofertasProductos = document.getElementById("ofertasProductos")
 
 let productosEnOferta = [
     {
-        nombre: "Sanguche completo",
+        nombre: "Sanguche-completo",
         precio: 2800,
         categoria: "Comida"
     },
     {
-        nombre: "Lasagna casera",
+        nombre: "Lasagna-casera",
         precio: 4200,
         categoria: "Comida"
     },
     {
-        nombre: "Combo dulce",
+        nombre: "Combo-dulce",
         precio: 2200,
         categoria: "Comida"
     }
@@ -34,11 +34,17 @@ span.innerText = localStorage.getItem("nombre")?localStorage.getItem("nombre"):"
 //logica para listar cada producto en oferta (igual que el de index)
 productosEnOferta.forEach(p => {
     const li = document.createElement("li")
+    li.className = "ofertaLi"
     li.innerHTML = `<p>Producto: ${p.nombre} - Precio: $${p.precio} - Categoria: ${p.categoria}</p>`
+    const img = document.createElement("img")
+    img.src = `../assets/${p.nombre}.png`
+    img.alt = `imagen de ${p.nombre}`
+    img.className = "ofertaImg"
     const button = document.createElement('button')
-    button.className = 'agregar'
+    button.className = 'agregarBtn'
     button.innerText = "Agregar al carrito"
     button.addEventListener("click",() => agregarCarrito(p))
+    li.appendChild(img)
     li.appendChild(button)
     ofertasProductos.appendChild(li)
 })
@@ -66,7 +72,7 @@ function actualizarVista () {
     mostrarMenu.innerHTML = ""
     output.innerHTML = ""
     output.innerHTML = `
-        <h3> Gracias ${localStorage.getItem("nombre")} por su compra: </h3>
+        <h3> Gracias ${localStorage.getItem("nombre")?localStorage.getItem("nombre"):""} por su compra: </h3>
         <ul>
             ${comprado.map(c => `<li>${c.nombre} - ${c.precio}</li>`).join("")}
         </ul>

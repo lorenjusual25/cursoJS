@@ -1,0 +1,57 @@
+@keyframes animacionColores {
+    0%   { 
+        color: #ff4e4e; 
+    } 
+    16%  { 
+        color: #ff9b4e; 
+    } 
+    33%  { 
+        color: #fff24e; 
+    }
+    50%  { 
+        color: #6aff4e; 
+    } 
+    66%  { 
+        color: #4e9bff; 
+    } 
+    83%  { 
+        color: #a74eff; 
+    }
+    100% { 
+        color: #ff4e4e; 
+    }
+}
+.gap {
+    gap: 10rem;
+}
+.btn-lg {
+    font-size: 1.6rem;
+}
+#ofertasProductos {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.ofertaLi {
+    border:5px solid ;
+    animation: animacionColores 5s infinite;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        color: black;
+    }
+}
+.ofertaImg {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+.agregarBtn {
+    height: 40px;
+    width: 150px;
+    font-size: 1rem;
+}

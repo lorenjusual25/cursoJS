@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--LINK DE BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!--LINK DE CSS-->
+    <link rel="stylesheet" href="../css/ofertas.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <button id="btnInicio">INICIO</button>
-        <button id="btnOfertas" disabled>OFERTAS</button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid justify-content-center p-2">
+                <!-- Contenedor para los botones de navegación -->
+                <ul class="navbar-nav flex-row gap">
+                    <li class="nav-item">
+                        <button id="btnInicio" class="btn btn-primary btn-lg">Inicio</button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="btnOfertas" class="btn btn-secondary btn-lg" disabled>Ofertas</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <h1><span id="username"></span> APROVECHA ESTAS OFERTAS EXCLUSIVAS POR TIEMPO LIMITADO</h1>
+    <h1 class="text-center"><span id="username"></span> APROVECHA ESTAS OFERTAS EXCLUSIVAS POR TIEMPO LIMITADO</h1>
     <section id="mostrarMenu">
         <ul id="ofertasProductos">
             <!-- Los productos en oferta se agregarán aca dinámicamente -->
@@ -18,6 +33,9 @@
     </section>
     <div id="output">
     </div>
+    <!--SCRIPT DE BOOTSTRAP-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!--SCRIPT DE OFERTAS-->
     <script src="../js/ofertas.js"></script>
 </body>
 </html>

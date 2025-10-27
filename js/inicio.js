@@ -1,4 +1,5 @@
 //este programa solo deja comprar 1 vez, para comprar mas veces hay que recargar la pag
+//una vez que se compra, se reinicia el nombre a cliente si es que no se vuelve a la pag de ingresar nombre
 //variables
 const btnOfertas = document.getElementById("btnOfertas").addEventListener("click",() => {
     location.href = "../pages/ofertas.html"
@@ -29,9 +30,9 @@ const productos = [
 
 const listaProductos = document.getElementById('listaProductos')
 
-let comprado = []
+let comprado = JSON.parse(localStorage.getItem("comprado")) || []
 
-let total = 0
+let total = parseInt(localStorage.getItem("total")) || 0
 
 let span = document.getElementById("username")
 
@@ -45,11 +46,17 @@ span.innerText = localStorage.getItem("nombre")?localStorage.getItem("nombre"):"
 //+ agregar lo comprado hasta ahora a localStorage para agregar ofertas si es que se quiere
 productos.forEach(producto => {
     const li = document.createElement('li')
+    li.className = 'productoLi'
     li.innerHTML = `<p>Producto: ${producto.nombre} - Precio: $${producto.precio} - Categoria: ${producto.categoria}</p>`
+    const img = document.createElement('img')
+    img.src = `../assets/${producto.nombre}.png`
+    img.alt = `imagen de ${producto.nombre}`
+    img.className = 'productoImg'
     const button = document.createElement('button')
-    button.className = 'agregar'
+    button.className = 'agregarBtn'
     button.innerText = "Agregar al carrito"
     button.addEventListener("click",() => agregarCarrito(producto))
+    li.appendChild(img)
     li.appendChild(button)
     listaProductos.appendChild(li)
 })
@@ -78,7 +85,7 @@ function actualizarVista () {
     mostrarMenu.innerHTML = ""
     output.innerHTML = ""
     output.innerHTML = `
-        <h3> Gracias ${localStorage.getItem("nombre")} por su compra: </h3>
+        <h3> Gracias ${localStorage.getItem("nombre")?localStorage.getItem("nombre"):""} por su compra: </h3>
         <ul>
             ${comprado.map(c => `<li>${c.nombre} - ${c.precio}</li>`).join("")}
         </ul>
