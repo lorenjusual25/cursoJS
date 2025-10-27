@@ -16,5 +16,5 @@ botonGuardar.addEventListener("click", () => {
 })
 
 boton.addEventListener("click",() => {
-    location.href = "/pages/inicio.html"
+    location.href = "pages/inicio.html"
 })
