@@ -2,7 +2,7 @@
 //una vez que se compra, se reinicia el nombre a cliente si es que no se vuelve a la pag de ingresar nombre
 //variables
 const btnOfertas = document.getElementById("btnOfertas").addEventListener("click",() => {
-    location.href = "../pages/ofertas.html"
+    location.href = "ofertas.html"
 })
 
 const productos = [

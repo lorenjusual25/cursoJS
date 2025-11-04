@@ -1,6 +1,6 @@
 //variables
 const btnInicio = document.getElementById("btnInicio").addEventListener("click",() =>{
-    location.href = "../pages/inicio.html"
+    location.href = "inicio.html"
 })
 
 let span = document.getElementById("username")
