@@ -10,44 +10,37 @@ let comprado = JSON.parse(localStorage.getItem("comprado")) || [] //aprendido de
 let total = parseInt(localStorage.getItem("total")) || 0 //Uso parseInt por que los precios que puse son todos enteros
 const ofertasProductos = document.getElementById("ofertasProductos")
 
-let productosEnOferta = [
-    {
-        nombre: "Sanguche-completo",
-        precio: 2800,
-        categoria: "Comida"
-    },
-    {
-        nombre: "Lasagna-casera",
-        precio: 4200,
-        categoria: "Comida"
-    },
-    {
-        nombre: "Combo-dulce",
-        precio: 2200,
-        categoria: "Comida"
-    }
-]
+let productosEnOferta = []
+fetch('../data/productos.json')
+.then(response => response.json())
+.then(data => {
+    productosEnOferta = data.filter(p => p.tipo === "Oferta")
+    cargarProductos()
+})
+.catch(error => console.error('Error al cargar el archivo JSON:', error));
 let output = document.getElementById("output")
 //pequeña logica para poner el nombre en el h1
 span.innerText = localStorage.getItem("nombre")?localStorage.getItem("nombre"):"cliente"
 
-//logica para listar cada producto en oferta (igual que el de index)
-productosEnOferta.forEach(p => {
-    const li = document.createElement("li")
-    li.className = "ofertaLi"
-    li.innerHTML = `<p>Producto: ${p.nombre} - Precio: $${p.precio} - Categoria: ${p.categoria}</p>`
-    const img = document.createElement("img")
-    img.src = `../assets/${p.nombre}.png`
-    img.alt = `imagen de ${p.nombre}`
-    img.className = "ofertaImg"
-    const button = document.createElement('button')
-    button.className = 'agregarBtn'
-    button.innerText = "Agregar al carrito"
-    button.addEventListener("click",() => agregarCarrito(p))
-    li.appendChild(img)
-    li.appendChild(button)
-    ofertasProductos.appendChild(li)
-})
+//logica para listar cada producto en oferta (igual que el de inicio)
+function cargarProductos () {
+    productosEnOferta.forEach(p => {
+        const li = document.createElement("li")
+        li.className = "ofertaLi"
+        li.innerHTML = `<p>Producto: ${p.nombre} - Precio: $${p.precio} - Categoria: ${p.categoria}</p>`
+        const img = document.createElement("img")
+        img.src = `../assets/${p.nombre}.png`
+        img.alt = `imagen de ${p.nombre}`
+        img.className = "ofertaImg"
+        const button = document.createElement('button')
+        button.className = 'agregarBtn'
+        button.innerText = "Agregar al carrito"
+        button.addEventListener("click",() => agregarCarrito(p))
+        li.appendChild(img)
+        li.appendChild(button)
+        ofertasProductos.appendChild(li)
+    })
+}
 
 function agregarCarrito (productoElejido) {
     comprado.push(productoElejido)

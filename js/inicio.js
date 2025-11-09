@@ -5,28 +5,15 @@ const btnOfertas = document.getElementById("btnOfertas").addEventListener("click
     location.href = "ofertas.html"
 })
 
-const productos = [
-    {
-        nombre: "Hamburguesa",
-        precio: 5000,
-        categoria: "Comida"
-    },
-    {
-        nombre: "Pizza",
-        precio: 3000,
-        categoria: "Comida"
-    },
-    {
-        nombre: "Pancho",
-        precio: 2000,
-        categoria: "Comida"
-    },
-    {
-        nombre: "Gaseosa",
-        precio: 1000,
-        categoria: "Bebida"
-    }
-]
+let productos = []
+
+fetch('../data/productos.json')
+.then(response => response.json())
+.then(data => {
+    productos = data.filter(p => p.tipo === "Producto")
+    cargarProductos() // Se agrega la invocación de la función aquí por que es asíncrono
+})
+.catch(error => console.error('Error al cargar el archivo JSON:', error));
 
 const listaProductos = document.getElementById('listaProductos')
 
@@ -44,22 +31,25 @@ span.innerText = localStorage.getItem("nombre")?localStorage.getItem("nombre"):"
 
 //logica de listar cada producto en la lista y agregarlo al carrito
 //+ agregar lo comprado hasta ahora a localStorage para agregar ofertas si es que se quiere
-productos.forEach(producto => {
-    const li = document.createElement('li')
-    li.className = 'productoLi'
-    li.innerHTML = `<p>Producto: ${producto.nombre} - Precio: $${producto.precio} - Categoria: ${producto.categoria}</p>`
-    const img = document.createElement('img')
-    img.src = `../assets/${producto.nombre}.png`
-    img.alt = `imagen de ${producto.nombre}`
-    img.className = 'productoImg'
-    const button = document.createElement('button')
-    button.className = 'agregarBtn'
-    button.innerText = "Agregar al carrito"
-    button.addEventListener("click",() => agregarCarrito(producto))
-    li.appendChild(img)
-    li.appendChild(button)
-    listaProductos.appendChild(li)
-})
+//Si no se agrega como funcion, no se llena el array productos porque fetch es asincronico y se ejecuta inmediatametne esto sin esperar a productos
+function cargarProductos() {
+    productos.forEach(producto => {
+        const li = document.createElement('li')
+        li.className = 'productoLi'
+        li.innerHTML = `<p>Producto: ${producto.nombre} - Precio: $${producto.precio} - Categoria: ${producto.categoria}</p>`
+        const img = document.createElement('img')
+        img.src = `../assets/${producto.nombre}.png`
+        img.alt = `imagen de ${producto.nombre}`
+        img.className = 'productoImg'
+        const button = document.createElement('button')
+        button.className = 'agregarBtn'
+        button.innerText = "Agregar al carrito"
+        button.addEventListener("click",() => agregarCarrito(producto))
+        li.appendChild(img)
+        li.appendChild(button)
+        listaProductos.appendChild(li)
+    })
+}
 
 function agregarCarrito(productoElejido) {
     comprado.push(productoElejido)
