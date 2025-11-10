@@ -1,77 +1,40 @@
-//variables
-const btnInicio = document.getElementById("btnInicio").addEventListener("click",() =>{
+import { getComprado,getTotal } from "./utils/storage.js"
+import { getElementos, mostrarNombreUsuario, vistaPreviaCarrito, actualizarVistaFinal, crearElementoProducto } from "./utils/dom.js"
+import { agregarCarrito } from "./utils/carrito.js"
+import { obtenerProductos } from "./utils/fetch.js"
+
+const btnInicio = document.getElementById("btnInicio").addEventListener("click",() => {
     location.href = "inicio.html"
 })
 
-let span = document.getElementById("username")
+const elementos = getElementos()
 
-let comprado = JSON.parse(localStorage.getItem("comprado")) || [] //aprendido del profe
+let productos;
 
-let total = parseInt(localStorage.getItem("total")) || 0 //Uso parseInt por que los precios que puse son todos enteros
-const ofertasProductos = document.getElementById("ofertasProductos")
+let comprado = getComprado()
 
-let productosEnOferta = []
-fetch('../data/productos.json')
-.then(response => response.json())
-.then(data => {
-    productosEnOferta = data.filter(p => p.tipo === "Oferta")
-    cargarProductos()
+let total = getTotal()
+
+mostrarNombreUsuario(elementos.span)
+
+obtenerProductos().then(data => {
+    productos = data.filter(p => p.oferta)
+    mostrarProductos()
 })
-.catch(error => console.error('Error al cargar el archivo JSON:', error));
-let output = document.getElementById("output")
-//pequeña logica para poner el nombre en el h1
-span.innerText = localStorage.getItem("nombre")?localStorage.getItem("nombre"):"cliente"
+.catch(error => console.error(error))
 
-//logica para listar cada producto en oferta (igual que el de inicio)
-function cargarProductos () {
-    productosEnOferta.forEach(p => {
-        const li = document.createElement("li")
-        li.className = "ofertaLi"
-        li.innerHTML = `<p>Producto: ${p.nombre} - Precio: $${p.precio} - Categoria: ${p.categoria}</p>`
-        const img = document.createElement("img")
-        img.src = `../assets/${p.nombre}.png`
-        img.alt = `imagen de ${p.nombre}`
-        img.className = "ofertaImg"
-        const button = document.createElement('button')
-        button.className = 'agregarBtn'
-        button.innerText = "Agregar al carrito"
-        button.addEventListener("click",() => agregarCarrito(p))
-        li.appendChild(img)
-        li.appendChild(button)
-        ofertasProductos.appendChild(li)
+function mostrarProductos () {
+    productos.forEach(p => {
+        const button = crearElementoProducto(p, elementos.ofertasProductos,true)
+        button.addEventListener("click", () => {
+            const estadoAct = agregarCarrito(p,comprado,total)
+            comprado = estadoAct.comprado
+            total = estadoAct.total
+            vistaPreviaCarrito(elementos.output, comprado, total, finalizar)
+        })
     })
 }
 
-function agregarCarrito (productoElejido) {
-    comprado.push(productoElejido)
-    total+=productoElejido.precio
-    localStorage.setItem("comprado",JSON.stringify(comprado))
-    localStorage.setItem("total",total)
-    output.innerHTML = `
-        <h4>Vista previa del carrito</h4>
-        <ul>
-            ${comprado.map(c => `<li>${c.nombre} - $${c.precio}</li>`).join("")}
-        </ul>
-        <p>Total: $${total}</p>
-        <button id="terminarCompra">Dejar de comprar</button>
-    `
-    if (document.getElementById("terminarCompra"))
-        document.getElementById("terminarCompra").addEventListener("click",() => {
-            actualizarVista()
-        })
-}
-function actualizarVista () {
-    let mostrarMenu = document.getElementById("mostrarMenu")
-    mostrarMenu.innerHTML = ""
-    output.innerHTML = ""
-    output.innerHTML = `
-        <h3> Gracias ${localStorage.getItem("nombre")?localStorage.getItem("nombre"):""} por su compra: </h3>
-        <ul>
-            ${comprado.map(c => `<li>${c.nombre} - ${c.precio}</li>`).join("")}
-        </ul>
-        <p> Total a pagar: $${total}</p>
-    `
-    localStorage.removeItem("nombre")
-    localStorage.removeItem("comprado")
-    localStorage.removeItem("total")
+function finalizar () {
+    actualizarVistaFinal(elementos.output, comprado, total, elementos.mostrarMenu)
 }

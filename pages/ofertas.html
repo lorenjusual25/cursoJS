@@ -35,7 +35,28 @@
     </div>
     <!--SCRIPT DE BOOTSTRAP-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <!--SCRIPT DE DARKMODE JS-->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script>
+        function addDarkmodeWidget() {
+            const options = {
+                bottom: '64px', // default: '32px'
+                right: 'unset', // default: '32px'
+                left: '32px', // default: 'unset'
+                time: '0.5s', // default: '0.3s'
+                mixColor: '#fff', // default: '#fff'
+                backgroundColor: '#fff',  // default: '#fff'
+                buttonColorDark: '#100f2c',  // default: '#100f2c'
+                buttonColorLight: '#fff', // default: '#fff'
+                saveInCookies: false, // default: true,
+                label: '🌓', // default: ''
+                autoMatchOsTheme: true // default: true
+            }
+            new Darkmode(options).showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
     <!--SCRIPT DE OFERTAS-->
-    <script src="../js/ofertas.js"></script>
+    <script type="module" src="../js/ofertas.js"></script>
 </body>
 </html>

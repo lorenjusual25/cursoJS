@@ -3,42 +3,56 @@
         "nombre": "Hamburguesa",
         "precio": 5000,
         "categoria": "Comida",
-        "tipo": "Producto"
+        "imagen": "hamburguesa.png",
+        "stock": 25,
+        "oferta": false
     },
     {
         "nombre": "Pizza",
         "precio": 3000,
         "categoria": "Comida",
-        "tipo": "Producto"
+        "imagen": "pizza.png",
+        "stock": 40,
+        "oferta": false
     },
     {
         "nombre": "Pancho",
         "precio": 2000,
         "categoria": "Comida",
-        "tipo": "Producto"
+        "imagen": "pancho.png",
+        "stock": 18,
+        "oferta": false
     },
     {
         "nombre": "Gaseosa",
         "precio": 1000,
         "categoria": "Bebida",
-        "tipo": "Producto"
+        "imagen": "gaseosa.png",
+        "stock": 50,
+        "oferta": false
     },
     {
-        "nombre": "Sanguche-completo",
+        "nombre": "Sanguche completo",
         "precio": 2800,
         "categoria": "Comida",
-        "tipo": "Oferta"
+        "imagen": "sanguche-completo.png",
+        "stock": 8,
+        "oferta": true
     },
     {
-        "nombre": "Lasagna-casera",
+        "nombre": "Lasagna casera",
         "precio": 4200,
         "categoria": "Comida",
-        "tipo": "Oferta"
+        "imagen": "lasagna-casera.png", 
+        "stock": 5,
+        "oferta": true
     },
     {
-        "nombre": "Combo-dulce",
+        "nombre": "Combo dulce",
         "precio": 2200,
         "categoria": "Comida",
-        "tipo": "Oferta"
+        "imagen": "combo-dulce.png",
+        "stock": 10,
+        "oferta": true
     }
 ]
