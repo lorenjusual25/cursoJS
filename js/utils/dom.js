@@ -28,7 +28,7 @@ export function actualizarVistaFinal (output, comprado,total, mostrarMenu) {
     `
     limpiarStorage()
     document.getElementById("volverIndex").addEventListener("click",() => {
-        location.href = "../index.html"
+        location.href = "index.html"
     })
 }
 
