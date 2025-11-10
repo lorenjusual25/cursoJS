@@ -58,7 +58,7 @@ export function crearElementoProducto(producto, listaGeneral, esOferta) {
         <p class="text-muted small">${producto.categoria}</p>
     `
     const img = document.createElement('img')
-    img.src = `../assets/${producto.imagen}`
+    img.src = `assets/${producto.imagen}`
     img.alt = `imagen de ${producto.nombre}`
     img.className = 'productoImg img-fluid rounded my-2'
     const button = document.createElement('button')
