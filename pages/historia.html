@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/historia.css">
+    <title>HISTORIA</title>
+</head>
+<body>
+  <head>
+    <nav class="navbar navbar-expand-lg navbar-custom"> 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <!-- Logo para Escritorio -->
+          <img src="../assets/images/logo.png" alt="logo de la pagina 'SABOR QUE NOS UNE'" class="d-none d-lg-inline-block align-text-top" width="175" height="100">
+          <!-- Logo para Móvil -->
+          <img src="../assets/images/logo-mobile.png" alt="logo de la pagina 'SABOR QUE NOS UNE'" class="d-inline-block d-lg-none align-text-top" width="250" height="160">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto gap-5">
+            <li class="nav-item">
+              <a class="nav-link" href="#">INICIO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">HISTORIA</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">PRODUCTOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">CONCURSO</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </head>
+  <main>
+    <!--Para el grid me ayude con la app https://cssgrid-generator.netlify.app-->
+    <div class="container-fluid m-5">
+      <div class="row" style="min-height: 400px;"> 
+        <div class="col-md-3 d-flex flex-column"> <!--Se define una columna que ocupa 4/12 para pantallas md, y se activa flexbox con sus elementos (los que estan dentro del div) en columna-->
+          <div class="border h-30 " >
+            <h1 class="h1-custom">
+              NUESTRA HISTORIA
+            </h1>
+          </div>
+          <div class="p-2 border h-70 overflow-auto" >
+            <h2 class="h2-custom text-start">
+              Desde una vieja receta hasta los hornos de distintas provincias, La Gran Familia de Empanadas recorre la historia de un sabor que cruzó mares y encontró hogar en Argentina. Así comienza el viaje de esta familia única. Te lo vas a perder?
+            </h2>
+          </div>
+        </div>
+        <div class="col-md-9 p-2 border">
+          <div class="ratio ratio-16x9 h-100"> <!--ratio es para hacer videos responsive y ratio-16x9 es el aspecto de la pantalla-->
+              <video src=""></video>
+          </div>
+          <img src="../assets/images/pjs/cascasca.png" alt="personaje de la historia" class="img-fluid mt-3">
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

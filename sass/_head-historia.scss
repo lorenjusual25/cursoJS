@@ -1,0 +1,33 @@
+@import 'variables';
+@import 'keyframes';
+.navbar-custom { 
+    margin: 1.5rem 2rem;
+    border-radius: 15px;
+    .nav-link {
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 0.8rem 1.5rem !important;
+        margin: 0 0.5rem;
+        border-radius: 8px;
+    }
+}
+/*PAGINA USADA PARA EL SOMBREADO DE LOS NAV-ITEMS
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi36t2B--2QAxWOqpUCHW6RDlcQFnoECCgQAQ&url=https%3A%2F%2Fhtml-css-js.com%2Fcss%2Fgenerator%2Fbox-shadow%2F&usg=AOvVaw2jqqbU1T4ki9k-0IbIDMqL&opi=89978449*/
+.nav-item {
+    background-color: $bg_color_nav-item;
+    border-radius: 2px;
+    -webkit-box-shadow: 5px 7px 2px 0px rgba(0,0,0,0.74); 
+    box-shadow: 5px 7px 2px 0px rgba(0,0,0,0.74);
+    &:hover {
+        background-color: $bg_color_nav-item_hover;
+        animation: nav-item-animation 0.5s ease-in-out;
+    }
+}
+.nav-link {
+    color: $c_nav-link;
+    font-size: large;
+    margin: 5px;
+}
+.d-inline-block .d-lg-none .align-text-top {
+    border: 2px solid;
+}

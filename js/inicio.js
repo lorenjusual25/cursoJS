@@ -28,9 +28,14 @@ function mostrarProductos () {
         const button = crearElementoProducto(p, elementos.listaProductos,false)//Se recibe el boton "agregar al carrito (con clases y texto)"
         button.addEventListener("click", () => {
             const estadoAct = agregarCarrito(p,comprado,total)
-            comprado = estadoAct.comprado
-            total = estadoAct.total
-            vistaPreviaCarrito(elementos.output, comprado, total, finalizar)
+            if (estadoAct.success){
+                comprado = estadoAct.comprado
+                total = estadoAct.total
+                vistaPreviaCarrito(elementos.output, comprado, total, finalizar)
+            }
+            else
+                //luego pienso en una forma de notificar que el usuario supero el stock
+                alert(estadoAct.message)
         })
     })
 }

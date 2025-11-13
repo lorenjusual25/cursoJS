@@ -16,5 +16,8 @@
     "url": "https://github.com/lorenjusual25/cursoJS/issues"
   },
   "homepage": "https://github.com/lorenjusual25/cursoJS#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "sass": "^1.94.0"
+  }
 }

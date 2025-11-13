@@ -28,19 +28,28 @@ export function actualizarVistaFinal (output, comprado,total, mostrarMenu) {
     `
     limpiarStorage()
     document.getElementById("volverIndex").addEventListener("click",() => {
-        location.href = "index.html"
+        location.href = "/index.html"
     })
 }
 
 export function vistaPreviaCarrito (output, comprado, total, finalizar) {
     output.innerHTML = `
         <h4>Vista previa del carrito</h4>
-        <ul>
-            ${comprado.map(c => `<li>${c.nombre} - $${c.precio}</li>`).join("")}
+        <ul class="vistaPreviaCarrito">
+            ${comprado.map(c => `
+                <li>
+                    ${c.nombre} - x${c.cant} -$${c.precio * c.cant}
+                    <button class="btnEliminar">Eliminar 1 producto</button>
+                    <button class="btnEliminarTotal">Eliminar toda la cantidad</button>
+                </li>
+            `).join("")}
         </ul>
         <p>Total: $${total}</p>
+        <button id="limpiarCarrito">Limpiar carrito</button>
         <button id="terminarCompra">Dejar de comprar</button>
     `
+    const btnEliminar = document.querySelector(".btnEliminar")
+
     const btnTerminar = document.getElementById("terminarCompra")
     if (btnTerminar) {
         btnTerminar.addEventListener("click", finalizar)
@@ -58,7 +67,7 @@ export function crearElementoProducto(producto, listaGeneral, esOferta) {
         <p class="text-muted small">${producto.categoria}</p>
     `
     const img = document.createElement('img')
-    img.src = `assets/${producto.imagen}`
+    img.src = `../assets/productos/${producto.imagen}`
     img.alt = `imagen de ${producto.nombre}`
     img.className = 'productoImg img-fluid rounded my-2'
     const button = document.createElement('button')
