@@ -3,3 +3,26 @@
     50% {transform: translateY(-10px);}
     100% {transform: translateY(0px);}
 }
+@keyframes animacionColores {
+    0%   { 
+        color: #ff4e4e; 
+    } 
+    16%  { 
+        color: #ff9b4e; 
+    } 
+    33%  { 
+        color: #fff24e; 
+    }
+    50%  { 
+        color: #6aff4e; 
+    } 
+    66%  { 
+        color: #4e9bff; 
+    } 
+    83%  { 
+        color: #a74eff; 
+    }
+    100% { 
+        color: #ff4e4e; 
+    }
+}

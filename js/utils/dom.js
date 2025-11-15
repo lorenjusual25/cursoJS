@@ -1,4 +1,5 @@
-import { getNombre, limpiarStorage } from './storage.js'
+import { getNombre, limpiarStorage} from './storage.js'
+import { eliminar1Producto, eliminarTotal, limpiarCarrito } from './carrito.js' 
 
 export function getElementos() {
     return {
@@ -6,8 +7,7 @@ export function getElementos() {
         username: document.getElementById("username"),
         output: document.getElementById("output"),
         mostrarMenu: document.getElementById("mostrarMenu"),
-        listaProductos: document.getElementById("listaProductos"),
-        ofertasProductos: document.getElementById("ofertasProductos")
+        listaProductos: document.getElementById("listaProductos")
     }
 }
 
@@ -36,11 +36,11 @@ export function vistaPreviaCarrito (output, comprado, total, finalizar) {
     output.innerHTML = `
         <h4>Vista previa del carrito</h4>
         <ul class="vistaPreviaCarrito">
-            ${comprado.map(c => `
+            ${comprado.map((c, index) => `
                 <li>
                     ${c.nombre} - x${c.cant} -$${c.precio * c.cant}
-                    <button class="btnEliminar">Eliminar 1 producto</button>
-                    <button class="btnEliminarTotal">Eliminar toda la cantidad</button>
+                    <button class="btnEliminar" data-index="${index}">Eliminar 1 producto</button>
+                    <button class="btnEliminarTotal" data-index="${index}">Eliminar toda la cantidad</button>
                 </li>
             `).join("")}
         </ul>
@@ -48,11 +48,42 @@ export function vistaPreviaCarrito (output, comprado, total, finalizar) {
         <button id="limpiarCarrito">Limpiar carrito</button>
         <button id="terminarCompra">Dejar de comprar</button>
     `
-    const btnEliminar = document.querySelector(".btnEliminar")
-
+    const btnEliminar = document.querySelectorAll(".btnEliminar")
+    if (btnEliminar) {
+        btnEliminar.forEach((btn) => {
+            btn.addEventListener("click" ,(e) => {
+                const index = parseInt(e.target.dataset.index)
+                const producto = comprado[index]
+                const res = eliminar1Producto(producto)
+                if (res.success) {
+                    vistaPreviaCarrito(output, res.comprado, res.total, finalizar)
+                }
+            })
+        })
+    }
+    const btnEliminarTotal = document.querySelectorAll(".btnEliminarTotal")
+    if (btnEliminarTotal) {
+        btnEliminarTotal.forEach((btn) => {
+            btn.addEventListener("click",(e) => {
+                const index = parseInt(e.target.dataset.index)
+                const producto = comprado[index]
+                const res = eliminarTotal(producto)
+                if (res.success) {
+                    vistaPreviaCarrito(output, res.comprado, res.total, finalizar)
+                }
+            })
+        })
+    }
     const btnTerminar = document.getElementById("terminarCompra")
     if (btnTerminar) {
         btnTerminar.addEventListener("click", finalizar)
+    }
+    const btnLimpiarCarrito = document.getElementById("limpiarCarrito")
+    if (btnLimpiarCarrito) {
+        const res = limpiarCarrito()
+        if (res.success) {
+            //podria poner una alerta de que el carrito fue eliminado o algo asi
+        }
     }
 }
 //Esta funcion es para crear el listado de productos y devuelve el boton de "agregar al carrito" 

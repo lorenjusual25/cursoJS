@@ -3,31 +3,27 @@ import { getElementos, mostrarNombreUsuario, vistaPreviaCarrito, actualizarVista
 import { agregarCarrito } from "./utils/carrito.js"
 import { obtenerProductos } from "./utils/fetch.js"
 
-const btnOfertas = document.getElementById("btnOfertas").addEventListener("click",() => {
-    location.href = "ofertas.html"
-})
-
 const elementos = getElementos()
 
 let productos;
 
-let comprado = getComprado()
+let comprado ;
 
-let total = getTotal()
+let total;
 
 mostrarNombreUsuario(elementos.span)
 
 obtenerProductos().then(data => {
-    productos = data.filter(p => !p.oferta)
+    productos = data
     mostrarProductos()
 })
 .catch(error => console.error(error))
 
 function mostrarProductos () {
     productos.forEach(p => {
-        const button = crearElementoProducto(p, elementos.listaProductos,false)//Se recibe el boton "agregar al carrito (con clases y texto)"
+        const button = crearElementoProducto(p, elementos.listaProductos,p.oferta)//Se recibe el boton "agregar al carrito (con clases y texto)"
         button.addEventListener("click", () => {
-            const estadoAct = agregarCarrito(p,comprado,total)
+            const estadoAct = agregarCarrito(p)
             if (estadoAct.success){
                 comprado = estadoAct.comprado
                 total = estadoAct.total
@@ -41,5 +37,5 @@ function mostrarProductos () {
 }
 
 function finalizar () {
-    actualizarVistaFinal(elementos.output, comprado, total, elementos.mostrarMenu)
+    actualizarVistaFinal(elementos.output, getComprado(), getTotal(), elementos.mostrarMenu)
 }
