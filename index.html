@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>TIENDA DE COMIDA</h1>
     <div id="contenedor">
-        <h2><span>Bienvenido a nuestra tienda.</span> Ingrese un nombre de usuario.</h2>
-        <input type="text" id="usernameInput" placeholder="Nombre de usuario">
-        <div class="contenedorBotones">
-            <button id="usernameGuardar" class="botonesIndex">Guardar nombre</button>
-            <button type="submit" id="irComprar" class="botonesIndex">Ir a comprar</button>
-        </div>
+      <div id="contenedorTexto">
+        <h2>
+          <span>Bienvenido a nuestra tienda.</span> Ingrese un nombre de
+          usuario.
+        </h2>
+      </div>
+      <input type="text" id="usernameInput" placeholder="Nombre de usuario" />
+      <div class="contenedorBotones">
+        <button id="usernameGuardar" class="botonesIndex">
+          Guardar nombre
+        </button>
+        <button type="submit" id="irComprar" class="botonesIndex">
+          Ir a comprar
+        </button>
+      </div>
     </div>
     <!--SCRIPT DE SWEET ALERT-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>

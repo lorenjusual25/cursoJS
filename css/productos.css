@@ -37,8 +37,9 @@
   border-radius: 15px;
 }
 .navbar-custom .nav-link {
+  font-family: "Placard", sans-serif;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: bold;
   padding: 0.8rem 1.5rem !important;
   margin: 0 0.5rem;
   border-radius: 8px;
@@ -65,6 +66,71 @@ https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi36t2B
 
 .d-inline-block .d-lg-none .align-text-top {
   border: 2px solid;
+}
+
+.username {
+  color: #f9b444;
+}
+
+img.rounded-5.float-end {
+  width: 50px;
+  height: 50px;
+}
+img.rounded-5.float-end:hover {
+  cursor: pointer;
+}
+img.rounded-5.float-end:active {
+  background-color: rgba(197, 198, 200, 0.786);
+}
+@media (max-width: 768px) {
+  img.rounded-5.float-end {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    z-index: 1000;
+    left: 20px;
+    bottom: 700px;
+  }
+}
+
+.verde-claro {
+  color: #3dbe5b;
+}
+
+#carritoWrapper {
+  min-height: 50px;
+}
+
+.card {
+  background-color: #89632e;
+}
+
+#output {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 999;
+}
+#output.hidden {
+  display: none;
+}
+@media (max-width: 768px) {
+  #output {
+    position: fixed;
+    top: auto;
+    bottom: 80px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+    min-width: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
 }
 
 body {

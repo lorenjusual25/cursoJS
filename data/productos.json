@@ -1,58 +1,98 @@
 [
     {
-        "nombre": "Hamburguesa",
-        "precio": 5000,
+        "nombre": "Empanada de carne",
+        "precio": 820,
         "categoria": "Comida",
-        "imagen": "hamburguesa.png",
-        "stock": 25,
-        "oferta": false
-    },
-    {
-        "nombre": "Pizza",
-        "precio": 3000,
-        "categoria": "Comida",
-        "imagen": "pizza.png",
-        "stock": 40,
-        "oferta": false
-    },
-    {
-        "nombre": "Pancho",
-        "precio": 2000,
-        "categoria": "Comida",
-        "imagen": "pancho.png",
-        "stock": 18,
-        "oferta": false
-    },
-    {
-        "nombre": "Gaseosa",
-        "precio": 1000,
-        "categoria": "Bebida",
-        "imagen": "gaseosa.png",
+        "imagen": "empanada-carne.png",
         "stock": 50,
         "oferta": false
     },
     {
-        "nombre": "Sanguche completo",
-        "precio": 2800,
+        "nombre": "Empanada de pollo",
+        "precio": 830,
         "categoria": "Comida",
-        "imagen": "sanguche-completo.png",
-        "stock": 8,
+        "imagen": "empanada-pollo.png",
+        "stock": 40,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada de jamón y queso",
+        "precio": 800,
+        "categoria": "Comida",
+        "imagen": "empanada-jyq.png",
+        "stock": 45,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada de humita",
+        "precio": 850,
+        "categoria": "Comida",
+        "imagen": "empanada-humita.png",
+        "stock": 35,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada Caprese",
+        "precio": 840,
+        "categoria": "Comida",
+        "imagen": "empanada-caprese.png",
+        "stock": 30,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada de espinaca y ricota",
+        "precio": 830,
+        "categoria": "Comida",
+        "imagen": "empanada-espinaca-ricota.png",
+        "stock": 25,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada árabe",
+        "precio": 850,
+        "categoria": "Comida",
+        "imagen": "empanada-arabe.png",
+        "stock": 850,
+        "oferta": false
+    },
+    {
+        "nombre": "Botella de agua 500ml",
+        "precio": 1000,
+        "categoria": "Bebida",
+        "imagen": "agua.png",
+        "stock": 100,
+        "oferta": false
+    },
+    {
+        "nombre": "Gaseosa 350ml",
+        "precio": 1200,
+        "categoria": "Bebida",
+        "imagen": "gaseosa.png",
+        "stock": 80,
+        "oferta": false
+    },
+    {
+        "nombre": "Empanada de carne picante 2x1",
+        "precio": 800,
+        "categoria": "Comida",
+        "imagen": "empanada-picante-2x1.png",
+        "stock": 60,
         "oferta": true
     },
     {
-        "nombre": "Lasagna casera",
-        "precio": 4200,
+        "nombre": "Empanada de pollo 2x1",
+        "precio": 780,
         "categoria": "Comida",
-        "imagen": "lasagna-casera.png", 
-        "stock": 5,
+        "imagen": "empanada-pollo-2x1.png",
+        "stock": 50,
         "oferta": true
     },
     {
-        "nombre": "Combo dulce",
-        "precio": 2200,
+        "nombre": "Empanada de Verdura Suprema",
+        "precio": 800,
         "categoria": "Comida",
-        "imagen": "combo-dulce.png",
-        "stock": 10,
+        "imagen": "empanada-verdura-suprema.png",
+        "stock": 50,
         "oferta": true
     }
 ]

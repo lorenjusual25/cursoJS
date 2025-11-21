@@ -37,8 +37,9 @@
   border-radius: 15px;
 }
 .navbar-custom .nav-link {
+  font-family: "Placard", sans-serif;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: bold;
   padding: 0.8rem 1.5rem !important;
   margin: 0 0.5rem;
   border-radius: 8px;
@@ -68,8 +69,9 @@ https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi36t2B
 }
 
 .h1-custom {
+  font-family: "Placard", sans-serif;
+  font-weight: bold;
   font-size: 5rem;
-  font-weight: 700;
   color: rgba(195, 66, 61, 0.8980392157);
   text-align: center;
   margin-top: 1rem;
@@ -92,10 +94,12 @@ https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwi36t2B
   }
 }
 .h2-custom {
+  font-family: "Placard", sans-serif;
+  font-weight: bold;
   color: rgba(195, 66, 61, 0.8980392157);
 }
 
-div.ratio.h-100.rounded-5 {
+div.ratio.ratio-16x9.h-100.rounded-5 {
   background-color: #b93c38;
 }
 
@@ -140,6 +144,10 @@ div.ratio.h-100.rounded-5 {
 
 body {
   background-color: #f9ebca;
+}
+
+footer.footer.mt-auto.py-3 {
+  background-color: rgb(78, 77, 77);
 }
 
 /*# sourceMappingURL=historia.css.map */

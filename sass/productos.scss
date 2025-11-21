@@ -1,5 +1,60 @@
 @import 'header';
 @import 'variables';
+.username {
+    color: #f9b444;
+}
+img.rounded-5.float-end {
+    width: 50px;
+    height: 50px;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        background-color: rgba(197, 198, 200, 0.786);
+    }
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        z-index: 1000;
+        left: 20px;
+        bottom: 700px;
+    }
+}
+.verde-claro {
+    color: #3dbe5b;
+}
+#carritoWrapper {
+    min-height: 50px;
+}
+.card {
+    background-color: #89632e;
+}
+#output {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    min-width: 300px;
+    max-width: 400px;
+    z-index: 999;
+    &.hidden {
+        display: none;
+    }
+    @media (max-width: 768px) {
+        position: fixed;
+        top: auto;
+        bottom: 80px; 
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        min-width: auto;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+}
 body {
     background-color: $bg-color;
 }

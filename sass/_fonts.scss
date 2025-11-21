@@ -1,0 +1,16 @@
+//Fuente Placard Regular
+@font-face {
+    font-family: 'Placard';
+    src: url('../assets/fonts/PLACARDMTSTDCONDENSED.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap; //mejora el rendimiento de carga de la fuente
+}
+//Fuente Placard Bold
+@font-face {
+    font-family: 'Placard';
+    src: url('../assets/fonts/PLACARDMTSTDCONDENSEDBD.OTF') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap; //mejora el rendimiento de carga de la fuente
+}

@@ -1,0 +1,65 @@
+body {
+  background: linear-gradient(#ff7e5f, #feb47b);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#contenedor {
+  height: 50vh;
+  width: 50vh;
+  background-color: rgba(255, 255, 255, 0.7725490196);
+  border: solid 2px #ffffff;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+#contenedor #contenedorTexto {
+  background-color: #fad6bb;
+  padding: 5px;
+  font-size: 20px;
+}
+
+#usernameInput {
+  height: 80px;
+  width: 80%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.contenedorBotones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.botonesIndex {
+  border: none;
+  background-color: rgba(232, 161, 47, 0.8901960784);
+  width: 150px;
+  height: 40px;
+}
+.botonesIndex:hover {
+  cursor: pointer;
+  background-color: #f4c099;
+}
+
+#irComprar {
+  background-color: #99f4a4;
+}
+
+/*# sourceMappingURL=index.css.map */

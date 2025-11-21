@@ -8,6 +8,7 @@ body {
 }
 
 h1 {
+    color: #ffffff;
     font-size: 48px;
     margin-bottom: 20px;
     text-align: center;
@@ -25,10 +26,10 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    h2 span { /*no le puse un id porque queria hacerlo mas facil*/
-        display: block;
-        font-size: 24px;
-        margin-bottom: 5px;
+    #contenedorTexto{
+        background-color: #fad6bb;
+        padding: 5px;
+        font-size: 20px;
     }
 }
 #usernameInput {
@@ -38,14 +39,22 @@ h1 {
     font-size: 30px;
 }
 .contenedorBotones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+
 }
 .botonesIndex {
     border: none;
     background-color: #e8a12fe3;
     width: 150px;
     height: 40px;
+    &:hover {
+        cursor: pointer;
+        background-color: #f4c099;
+    }
 }
-.botonesIndex:hover {
-    cursor: pointer;
-    background-color: #f4c099;
+#irComprar {
+    background-color: #99f4a4;
 }
